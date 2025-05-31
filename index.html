@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuwan Lin, PhD - Postdoctoral Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header */
+        .header {
+            background: #A51C30;  /* Harvard crimson */
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: 4px solid white;
+            overflow: hidden;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .header-text p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #f0f0f0;
+            color: #A51C30;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #A51C30;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Research Interests */
+        .research-interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .interest-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            color: #555;
+        }
+
+        /* Publications */
+        .publication-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .category-title {
+            color: #A51C30;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .publication {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .publication-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .publication-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #fff;
+        }
+
+        .publication-content {
+            flex: 1;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-authors {
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .publication-journal {
+            color: #A51C30;
+            font-style: italic;
+        }
+
+        .publication-links {
+            margin-top: 0.5rem;
+        }
+
+        .publication-links a {
+            color: #A51C30;
+            text-decoration: none;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .publication-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .publication {
+                flex-direction: column;
+            }
+
+            .publication-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        /* Teaching */
+        .teaching-item {
+            margin-bottom: 1rem;
+        }
+
+        .teaching-item strong {
+            color: #333;
+        }
+
+        /* Awards */
+        .award {
+            margin-bottom: 0.8rem;
+        }
+
+        .award-year {
+            font-weight: 600;
+            color: #A51C30;
+            margin-right: 1rem;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .education-degree {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-degree strong {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .education-date {
+            color: #A51C30;
+            font-weight: 500;
+        }
+
+        .education-institution {
+            color: #666;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            margin-top: 0.5rem;
+            color: #555;
+        }
+
+        .education-details p {
+            margin: 0.3rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            nav a {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .research-interests {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav {
+                display: none;
+            }
+
+            section {
+                box-shadow: none;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="profile-photo">
+                <img src="profile-photo.jpg" alt="Zuwan Lin">
+            </div>
+            <div class="header-text">
+                <h1>Zuwan Lin, PhD</h1>
+                <p>Postdoctoral Researcher</p>
+                <p>Harvard University</p>
+                <div class="contact-info">
+                    <a href="mailto:linzuwan@gmail.com">📧 Email</a>
+                    <a href="https://scholar.google.com/citations?user=huZAOOQAAAAJ&hl=en" target="_blank">🎓 Google Scholar</a>
+                    <a href="https://github.com/linzw14" target="_blank">💻 GitHub</a>
+                    <a href="https://orcid.org/0000-0001-5786-9768" target="_blank">🔗 ORCID</a>
+                    <a href="https://www.linkedin.com/in/zuwan-lin-545b1b214" target="_blank">👔 Linkedin</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#research">Research Interests</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#presentations">Invited Talks</a></li>
+            <li><a href="#teaching">Teaching Experience</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+            Currently I am a postdoctoral researcher in the <a href="https://seas.harvard.edu/" target="_blank">School of Engineering and Applied Sciences at Harvard University</a>, working with <a href="https://nali.seas.harvard.edu/" target="_blank">Prof. Na Li</a>. Prior to this, I was co-advised by <a href="https://liulab.seas.harvard.edu/" target="_blank">Prof. Jia Liu</a> at Harvard University and <a href="https://www.wangxiaolab.org/xiao-wang" target="_blank">Prof. Xiao Wang</a> at <a href="https://www.broadinstitute.org/" target="_blank">Broad Institute of MIT and Harvard</a>, and earned my Ph.D. in physical chemistry from Harvard University in 2024. I have also worked closely with <a href="https://hscrb.harvard.edu/labs/lee-lab/" target="_blank">Prof. Richard T. Lee</a>, <a href="https://cdb.med.upenn.edu/people/juan-alvarez-ph-d/" target="_blank">Prof. Juan Alvarez</a>, and <a href="https://cse.umn.edu/datascience/jie-ding" target="_blank">Prof. Jie Ding</a>. I earned my B.S. in chemical biology from <a href="https://www.tsinghua.edu.cn/en/" target="_blank">Tsinghua University</a> in 2018.
+            </p>
+            <br>
+            <p>
+            My research decodes how cells orchestrate functional tissues by integrating three technological frontiers: bioelectronics, spatial transcriptomics, and agentic AI. First, I pioneered <a href="https://www.nature.com/articles/s41596-025-01147-7" target="_blank">cyborg engineering</a> which embeds tissue-like stretchable nanoelectronics into developing <a href="https://www.science.org/doi/full/10.1126/sciadv.ade8513" target="_blank">cardiac</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8930507/pdf/nihms-1778930.pdf" target="_blank">neural</a>, and <a href="https://www.biorxiv.org/content/10.1101/2024.03.18.585551v1.full.pdf" target="_blank">pancreatic organoids</a> or into <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11160708/" target="_blank">living animals</a> to capture continuous single-cell electrical activity over months. Second, I developed <a href="https://www.cell.com/cell/fulltext/S0092-8674(23)00286-6" target="_blank"><i>in situ</i> electro-seq</a>, which pairs millisecond-scale electrical recordings with 3D spatial transcriptomics from the same cells, revealing how molecular programs drive cellular function. Third, I create autonomous AI agents powered by multimodal large language models: <a href="https://www.biorxiv.org/content/10.1101/2025.02.11.637754v1" target="_blank">SpikeAgent</a> automates neural spike sorting with interpretable decision-making, <a href="https://www.biorxiv.org/content/10.1101/2025.04.01.646731v1" target="_blank">STAgent</a> conducts spatial transcriptomic analysis while integrating scientific literature, and <a href="https://www.biorxiv.org/content/10.1101/2025.05.15.653585v1" target="_blank">BehaveAgent</a> performs universal behavior analysis from raw video. These agents transform weeks of expert analysis into minutes of automated discovery. By integrating chronic bioelectronic sensing, multimodal molecular profiling, and intelligent automation, my research aims to revolutionize how we study development, disease, and regeneration across biological scales.
+            </p>
+        </section>
+
+
+        <!-- Research Interests -->
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div class="research-interests">
+                <div class="interest-item">Agentic AI</div>
+                <div class="interest-item">Bioelectronics</div>
+                <div class="interest-item">Spatial Omics</div>
+                <div class="interest-item">Cyborg Engineering</div>
+                <div class="interest-item">Neural Interfaces</div>
+            </div>
+            
+        </section>
+
+        <!-- Publications -->
+        <section id="publications">
+            <h2>Publications</h2>
+            <p style="margin-bottom: 1.5rem;">
+            <p style="margin-top: 1.5rem;">
+                <em>* Denotes equal contribution, # Denotes corresponding author</em>
+            </p>
+                
+
+            <!-- Category 1: AI agent for Biology & Control -->
+            <div class="publication-category">
+                <h3 class="category-title">AI Agent for biology & control</h3>
+                
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="1-1.jpg" alt="1-1">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Spike sorting AI agent
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Zuwan Lin*</strong>, Arnau Marin-Llobet*, Jongmin Baek, Yichun He, Jaeyong Lee, Wenbo Wang, Xinhe Zhang, Ariel J. Lee, Ningyue Liang, Jin Du, Jie Ding, Na Li, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            bioRxiv, 2025
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.biorxiv.org/content/biorxiv/early/2025/02/12/2025.02.11.637754.full.pdf" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="1-2.jpg" alt="1-2">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Spatial transcriptomics AI agent charts hPSC-pancreas maturation <i>in vivo</i>
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Zuwan Lin*</strong>, Wenbo Wang*, Arnau Marin-Llobet, Qiang Li, Samuel D. Pollock, Xin Sui, Almir Aljovic, Jaeyong Lee, Jongmin Baek, Ningyue Liang, Xinhe Zhang, Connie Kangni Wang, Jiahao Huang, Mai Liu, Zihan Gao, Hao Sheng, Jin Du, Stephen J. Lee, Brandon Wang, Yichun He, Jie Ding, Xiao Wang, Juan R. Alvarez-Dominguez<sup>#</sup>, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            bioRxiv, 2025
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.biorxiv.org/content/biorxiv/early/2025/04/04/2025.04.01.646731.full.pdf" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="1-3.jpg" alt="1-3">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            An autonomous AI agent for universal behavior analysis
+                        </div>
+                        <div class="publication-authors">
+                            Almir Aljovic*<sup>#</sup>, <strong>Zuwan Lin*<sup>#</sup></strong>, Wenbo Wang, Xinhe Zhang, Arnau Marin-Llobet, Ningyue Liang, Bradley Canales, Jaeyong Lee, Jongmin Baek, Ren Liu, Catherine Li, Na Li, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            bioRxiv, 2025
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.biorxiv.org/content/biorxiv/early/2025/05/20/2025.05.15.653585.full.pdf" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="1-4.jpg" alt="1-4">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Explainable multi-task learning for multi-modality biological data analysis
+                        </div>
+                        <div class="publication-authors">
+                            Xin Tang*, Jiawei Zhang*, Yichun He*, Xinhe Zhang, <strong>Zuwan Lin</strong>, Sebastian Partarrieu, Emma Bou Hanna, Zhaolin Ren, Hao Shen, Yuhong Yang, Xiao Wang, Na Li, Jie Ding<sup>#</sup>, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Nature Communications, 2023
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.nature.com/articles/s41467-023-37477-x" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="1-5.jpg" alt="1-5">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            An AI-cyborg system for adaptive intelligent modulation of organoid maturation
+                        </div>
+                        <div class="publication-authors">
+                            Ren Liu*, Zhaolin Ren*, Xinhe Zhang*, Qiang Li, Wenbo Wang, <strong>Zuwan Lin</strong>, Richard T. Lee, Jie Ding, Na Li<sup>#</sup>, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            bioRxiv, 2024
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.biorxiv.org/content/10.1101/2024.12.07.627355v1.full.pdf" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Multimodal Systems Biology -->
+            <div class="publication-category">
+                <h3 class="category-title">Multimodal systems biology</h3>
+                
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="2-1.jpg" alt="2-1">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Multimodal charting of molecular and functional cell states via <i>in situ</i> electro-sequencing
+                        </div>
+                        <div class="publication-authors">
+                            Qiang Li*, <strong>Zuwan Lin*</strong>, Ren Liu*, Xin Tang*, Jiahao Huang, Yichun He, Xin Sui, Weiwen Tian, Haowen Zhou, Hao Sheng, Hailing Shi, Ling Xiao, Xiao Wang<sup>#</sup>, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Cell, 2023
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.cell.com/cell/fulltext/S0092-8674(23)00286-6" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="2-2.jpg" alt="2-2">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Tissue-embedded stretchable nanoelectronics reveal endothelial cell–mediated electrical maturation of human 3D cardiac microtissues
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Zuwan Lin*</strong>, Jessica C. Garbern*, Ren Liu*, Qiang Li, Estela Mancheño Juncosa, Hannah LT. Elwell, Morgan Sokol, Junya Aoyama, Undine-Sophie Deumer, Emma Hsiao, Hao Sheng, Richard T. Lee<sup>#</sup>, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Science Advances, 2023
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.science.org/doi/full/10.1126/sciadv.ade8513" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="2-3.jpg" alt="2-3">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            <i>In situ</i> graphene-seq: spatial transcriptomics and chronic electrophysiology characterization of tissue microenvironments
+                        </div>
+                        <div class="publication-authors">
+                            Jaeyong Lee*, Wenbo Wang*, Qiang Li, <strong>Zuwan Lin</strong>, Ren Liu, Zefang Tang, Junya Aoyama, Richard T. Lee, Xiao Wang, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            bioRxiv, 2025
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.biorxiv.org/content/biorxiv/early/2025/03/28/2025.03.25.645278.full.pdf" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="2-4.jpg" alt="2-4">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Controlling organoid symmetry breaking uncovers an excitable system underlying human axial elongation
+                        </div>
+                        <div class="publication-authors">
+                            Giridhar M. Anand*, Heitor C. Megale, Sean H. Murphy, Theresa Weis, <strong>Zuwan Lin</strong>, Yichun He, Xiao Wang, Jia Liu, Sharad Ramanathan<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Cell, 2023
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.cell.com/cell/fulltext/S0092-8674(22)01586-0?uuid=uuid%3Ae935610d-821a-46f4-8e54-91db89f06013" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Bioelectronics for Cyborg Engineering -->
+            <div class="publication-category">
+                <h3 class="category-title">Bioelectronics for cyborg engineering</h3>
+                
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="3-1.jpg" alt="3-1">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Cyborg organoids integrated with stretchable nanoelectronics can be functionally mapped during development
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Zuwan Lin*</strong>, Wenbo Wang*, Ren Liu*, Qiang Li*, Jaeyong Lee, Charles Hirschler, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Nature Protocols, 2025
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.nature.com/articles/s41596-025-01147-7" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="3-2.jpg" alt="3-2">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Stretchable mesh nanoelectronics for 3D single-cell chronic electrophysiology from developing brain organoids
+                        </div>
+                        <div class="publication-authors">
+                            Paul Le Floch*, Qiang Li*, <strong>Zuwan Lin*</strong>, Siyuan Zhao, Ren Liu, Kazi Tasnim, Han Jiang, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Advanced Materials, 2022,
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8930507/pdf/nihms-1778930.pdf" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="3-3.jpg" alt="3-3">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Cyborg islets: implanted flexible electronics reveal principles of human islet electrical maturation
+                        </div>
+                        <div class="publication-authors">
+                            Qiang Li*, Ren Liu*, <strong>Zuwan Lin*</strong>, Xinhe Zhang*, Israeli Galicia Silva, Samuel D. Pollock, Juan R. Alvarez-Dominguez<sup>#</sup>, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            bioRxiv, 2024
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.biorxiv.org/content/10.1101/2024.03.18.585551v1.full.pdf" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="3-4.jpg" alt="3-4">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Cyborg organoids: implantation of nanoelectronics via organogenesis for tissue-wide electrophysiology
+                        </div>
+                        <div class="publication-authors">
+                            Qiang Li*, Kewang Nan*, Paul Le Floch*, <strong>Zuwan Lin</strong>, Hao Sheng, Thomas S. Blum, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Nano Letter, 2019
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4: Neural Interfaces & In Vivo Bioelectronics -->
+            <div class="publication-category">
+                <h3 class="category-title">Neural interfaces & <i>in vivo</i> bioelectronics</h3>
+                
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="4-1.jpg" alt="4-2">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Brain implantation of tissue-level-soft bioelectronics via embryonic development
+                        </div>
+                        <div class="publication-authors">
+                            Hao Sheng*, Ren Liu*, Qiang Li*, <strong>Zuwan Lin</strong>*, Yichun He, Thomas S. Blum, Hao Zhao, Xin Tang, Wenbo Wang, Lishuai Jin, Zheliang Wang, Emma Hsiao, Paul Le Floch, Hao Shen, Ariel J. Lee, Rachael Alice Jonas-Closs, James Briggs, Siyi Liu, Daniel Solomon, Xiao Wang, Nanshu Lu, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            bioRxiv, 2024
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11160708/" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="4-2.jpg" alt="4-2">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Tracking neural activity from the same cells during the entire adult life of mice
+                        </div>
+                        <div class="publication-authors">
+                            Siyuan Zhao*, Xin Tang*, Weiwen Tian*, Sebastian Partarrieu*, Ren Liu, Hao Shen, Jaeyong Lee, Shiqi Guo, <strong>Zuwan Lin</strong>, Jia Liu<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Nature Neuroscience, 2023
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.nature.com/articles/s41593-023-01267-x" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 5: Spatial Biology & High-Resolution Tissue Mapping -->
+            <div class="publication-category">
+                <h3 class="category-title">Spatial biology & high-resolution tissue mapping</h3>
+                
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="5-1.jpg" alt="5-1">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Spatial atlas of the mouse central nervous system at molecular resolution
+                        </div>
+                        <div class="publication-authors">
+                            Hailing Shi*, Yichun He*, Yiming Zhou*, Jiahao Huang, Kamal Maher, Brandon Wang, Zefang Tang, Shuchen Luo, Peng Tan, Morgan Wu, <strong>Zuwan Lin</strong>, Jingyi Ren, Yaman Thapa, Xin Tang, Ken Y. Chan, Benjamin E. Deverman, Hao Shen, Albert Liu, Jia Liu<sup>#</sup>, Xiao Wang<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Nature, 2023
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.nature.com/articles/s41586-023-06569-5" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="5-2.jpg" alt="5-2">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            ClusterMap for multi-scale clustering analysis of spatial gene expression
+                        </div>
+                        <div class="publication-authors">
+                            Yichun He*, Xin Tang*, Jiahao Huang, Jingyi Ren, Haowen Zhou, Kevin Chen, Albert Liu, Hailing Shi, <strong>Zuwan Lin</strong>, Qiang Li, Abhishek Aditham, Johain Ounadjela, Emanuelle I. Grody, Jian Shu, Jia Liu<sup>#</sup>, Xiao Wang<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Nature Communications, 2021
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.nature.com/articles/s41467-021-26044-x" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="5-3.jpg" alt="5-3">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Spatiotemporally resolved transcriptomics reveals the subcellular RNA kinetic landscape
+                        </div>
+                        <div class="publication-authors">
+                            Jingyi Ren*, Haowen Zhou*, Hu Zeng*, Connie Kangni Wang, Jiahao Huang, Xiaojie Qiu, Xin Sui, Qiang Li, Xunwei Wu, <strong>Zuwan Lin</strong>, Jennifer A. Lo, Kamal Maher, Yichun He, Xin Tang, Judson Lam, Hongyu Chen, Brian Li, David E. Fisher, Jia Liu, Xiao Wang<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            Nature Methods, 2023,
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.nature.com/articles/s41592-023-01829-8" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-image">
+                        <img src="5-4.jpg" alt="5-4">
+                    </div>
+                    <div class="publication-content">
+                        <div class="publication-title">
+                            Scalable spatial single-cell transcriptomics and translatomics in 3D thick tissue blocks
+                        </div>
+                        <div class="publication-authors">
+                            Xin Sui*, Jennifer A. Lo*, Shuchen Luo, Yichun He, Zefang Tang, <strong>Zuwan Lin</strong>, Yiming Zhou, Wendy Xueyi Wang, Jia Liu, Xiao Wang<sup>#</sup>
+                        </div>
+                        <div class="publication-journal">
+                            bioRxiv, 2024
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" target="_blank">Full text</a>
+                        </div>
+                    </div>
+                </div>
+            
+    
+        </section>
+
+        <!-- Presentations -->
+        <section id="presentations">
+            <h2>Invited Talks</h2>
+          
+            <div class="teaching-item">
+                <strong>2025</strong> - "AI agent for neuroscience and neuroengineering" - Enigma Seminar, Stanford
+            </div>
+            <div class="teaching-item">
+                <strong>2025</strong> - "Spike sorting AI agent" - Spike Sorting Seminar, UCSF
+            </div>
+            <div class="teaching-item">
+                <strong>2025</strong> - "Spike sorting AI agent" - Spike Sorting Seminar, Flatiron Institute
+            </div>
+            <div class="teaching-item">
+                <strong>2024</strong> - "<i>In situ</i> charting of single-cell transcriptional changes at the brain-electrode interface" - Stanley Center Program Meeting, Broad Institute of MIT and Harvard
+            </div>
+            <div class="teaching-item">
+                <strong>2023</strong> - "Multimodal charting of molecular and functional cell states via <i>in situ</i> electro-sequencing" - 97th New England Complex Fluids (NECF) Meeting, Harvard University
+            </div>
+            <div class="teaching-item">
+                <strong>2023</strong> - "Harnessing AI in multimodal cell state analysis through <i>In situ</i> electro-seq" - Cell Circuits and Epigenomics Seminar, Broad Institute of MIT and Harvard
+            </div>
+            
+
+        </section>
+
+        <!-- Teaching -->
+        <section id="teaching">
+            <h2>Teaching Experience</h2>
+            
+            <div class="teaching-item">
+                <strong>Neuroengineering</strong> - BE 131, Harvard University, 2024 & 2023
+            </div>
+            <div class="teaching-item">
+                <strong>Foundations and Frontiers of Modern Chemistry</strong> - PHYSCI 11, Harvard University, 2019
+            </div>
+            <div class="teaching-item">
+                <strong>Foundational Chemistry and Biology </strong> - LPS A, Harvard University, 2019
+            </div>
+
+        </section>
+
+        
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Zuwan Lin. Last updated: December 2024</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.borderBottom = 'none';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.borderBottom = '3px solid #A51C30';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
