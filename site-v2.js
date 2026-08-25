@@ -34,7 +34,7 @@ function renderChrome() {
   if (footer) footer.innerHTML = `
     <div><a class="footer-brand" href="index.html">The Lin Lab</a><p>${label('Intelligent Brain–Computer Interfaces and Bioelectronics Laboratory', '智能脑机接口与生物电子实验室')}</p></div>
     <div><p>${label('School of Engineering · Westlake University', '西湖大学工学院')}</p><p>${label('600 Dunyu Road, Hangzhou, China 310030', '浙江省杭州市西湖区墩余路600号，310030')}</p></div>
-    <div><a href="mailto:linzuwan@westlake.edu.cn">linzuwan@westlake.edu.cn</a><p>© ${new Date().getFullYear()} The Lin Lab</p></div>`;
+    <div><a href="mailto:linzuwan@westlake.edu.cn">linzuwan@westlake.edu.cn</a><p><a href="https://www.westlake.edu.cn/faculty/zuwan-lin.html" target="_blank" rel="noopener">${label('Westlake faculty profile ↗', '西湖大学教师主页 ↗')}</a></p><p>© ${new Date().getFullYear()} The Lin Lab</p></div>`;
 }
 
 function setLanguage(next) {
