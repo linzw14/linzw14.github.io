@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zuwan Lin, PhD - Postdoctoral Researcher</title>
+    <title>The Lin Lab | Intelligence Across Living Systems</title>
+    <meta name="description" content="The Lin Lab develops agentic AI, bioelectronics, and spatial omics to understand and engineer living systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Lin Lab | Intelligence Across Living Systems">
+    <meta property="og:description" content="Agentic AI, bioelectronics, and spatial omics for understanding and engineering living systems.">
+    <meta property="og:image" content="https://linzw14.github.io/og.png">
+    <meta property="og:url" content="https://linzw14.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Lin Lab | Intelligence Across Living Systems">
+    <meta name="twitter:description" content="Agentic AI, bioelectronics, and spatial omics for understanding and engineering living systems.">
+    <meta name="twitter:image" content="https://linzw14.github.io/og.png">
     <style>
         * {
             margin: 0;
@@ -363,25 +373,26 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="lab.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="profile-photo">
-                <img src="profile-photo.jpg" alt="Zuwan Lin">
-            </div>
-            <div class="header-text">
-                <h1>Zuwan Lin, PhD</h1>
-                <p>Postdoctoral Researcher</p>
-                <p>Harvard University</p>
+            <div class="header-text lab-identity">
+                <div class="eyebrow">Biology · Engineering · Intelligence</div>
+                <h1>The Lin Lab</h1>
+                <p class="hero-copy">We build intelligent tools to listen to cells, map their molecular states, and shape the future of living systems.</p>
                 <div class="contact-info">
-                    <a href="mailto:linzuwan@gmail.com">📧 Email</a>
-                    <a href="https://scholar.google.com/citations?user=huZAOOQAAAAJ&hl=en" target="_blank">🎓 Google Scholar</a>
-                    <a href="https://github.com/linzw14" target="_blank">💻 GitHub</a>
-                    <a href="https://orcid.org/0000-0001-5786-9768" target="_blank">🔗 ORCID</a>
-                    <a href="https://www.linkedin.com/in/zuwan-lin-545b1b214" target="_blank">👔 Linkedin</a>
+                    <a href="#research">Explore our research</a>
+                    <a href="#publications">Publications</a>
+                    <a href="mailto:linzuwan@gmail.com">Contact</a>
                 </div>
+            </div>
+            <div class="hero-visual" aria-label="Selected research imagery">
+                <img class="visual-main" src="2-1.jpg" alt="Spatial molecular and functional cell-state mapping">
+                <img class="visual-secondary" src="3-1.jpg" alt="Stretchable bioelectronics integrated with organoids">
+                <span class="visual-label">Across scales, from cells to systems</span>
             </div>
         </div>
     </header>
@@ -389,11 +400,12 @@
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#research">Research Interests</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
             <li><a href="#publications">Publications</a></li>
-            <li><a href="#presentations">Invited Talks</a></li>
-            <li><a href="#teaching">Teaching Experience</a></li>
+            <li><a href="#people">People</a></li>
+            <li><a href="#presentations">Talks</a></li>
+            <li><a href="#join">Join us</a></li>
         </ul>
     </nav>
 
@@ -401,34 +413,29 @@
     <div class="container">
         <!-- About Section -->
         <section id="about">
-            <h2>About Me</h2>
-            <p>
-            Currently I am a postdoctoral researcher in the <a href="https://seas.harvard.edu/" target="_blank">School of Engineering and Applied Sciences at Harvard University</a>, working with <a href="https://nali.seas.harvard.edu/" target="_blank">Prof. Na Li</a>. Prior to this, I was co-advised by <a href="https://liulab.seas.harvard.edu/" target="_blank">Prof. Jia Liu</a> at Harvard University and <a href="https://www.wangxiaolab.org/xiao-wang" target="_blank">Prof. Xiao Wang</a> at <a href="https://www.broadinstitute.org/" target="_blank">Broad Institute of MIT and Harvard</a>, and earned my Ph.D. in physical chemistry from Harvard University in 2024. I have also worked closely with <a href="https://hscrb.harvard.edu/labs/lee-lab/" target="_blank">Prof. Richard T. Lee</a>, <a href="https://cdb.med.upenn.edu/people/juan-alvarez-ph-d/" target="_blank">Prof. Juan Alvarez</a>, and <a href="https://cse.umn.edu/datascience/jie-ding" target="_blank">Prof. Jie Ding</a>. I earned my B.S. in chemical biology from <a href="https://www.tsinghua.edu.cn/en/" target="_blank">Tsinghua University</a> in 2018.
-            </p>
-            <br>
-            <p>
-            My research decodes how cells orchestrate functional tissues by integrating three technological frontiers: bioelectronics, spatial transcriptomics, and agentic AI. First, I pioneered <a href="https://www.nature.com/articles/s41596-025-01147-7" target="_blank">cyborg engineering</a> which embeds tissue-like stretchable nanoelectronics into developing <a href="https://www.science.org/doi/full/10.1126/sciadv.ade8513" target="_blank">cardiac</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8930507/pdf/nihms-1778930.pdf" target="_blank">neural</a>, and <a href="https://www.biorxiv.org/content/10.1101/2024.03.18.585551v1.full.pdf" target="_blank">pancreatic organoids</a> or into <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11160708/" target="_blank">living animals</a> to capture continuous single-cell electrical activity over months. Second, I developed <a href="https://www.cell.com/cell/fulltext/S0092-8674(23)00286-6" target="_blank"><i>in situ</i> electro-seq</a>, which pairs millisecond-scale electrical recordings with 3D spatial transcriptomics from the same cells, revealing how molecular programs drive cellular function. Third, I create autonomous AI agents powered by multimodal large language models: <a href="https://www.biorxiv.org/content/10.1101/2025.02.11.637754v1" target="_blank">SpikeAgent</a> automates neural spike sorting with interpretable decision-making, <a href="https://www.biorxiv.org/content/10.1101/2025.04.01.646731v1" target="_blank">STAgent</a> conducts spatial transcriptomic analysis while integrating scientific literature, and <a href="https://www.biorxiv.org/content/10.1101/2025.05.15.653585v1" target="_blank">BehaveAgent</a> performs universal behavior analysis from raw video. These agents transform weeks of expert analysis into minutes of automated discovery. By integrating chronic bioelectronic sensing, multimodal molecular profiling, and intelligent automation, my research aims to revolutionize how we study development, disease, and regeneration across biological scales.
-            </p>
+            <div class="section-kicker">Our mission</div>
+            <h2>Decode life. Build with it.</h2>
+            <div class="about-grid">
+                <p class="about-lead">The Lin Lab works at the convergence of intelligent systems and living systems. We develop technologies that can observe biology continuously, connect cellular function to molecular identity, and turn complex data into scientific action.</p>
+                <p>Our work integrates tissue-like bioelectronics, spatial transcriptomics, and agentic AI. The long-term goal is to reveal how cells organize functional tissues—and to create new ways to study development, disease, and regeneration across biological scales.</p>
+            </div>
         </section>
 
 
         <!-- Research Interests -->
         <section id="research">
-            <h2>Research Interests</h2>
+            <div class="section-kicker">What we do</div>
+            <h2>Research directions</h2>
             <div class="research-interests">
-                <div class="interest-item">Agentic AI</div>
-                <div class="interest-item">Bioelectronics</div>
-                <div class="interest-item">Spatial Omics</div>
-                <div class="interest-item">Cyborg Engineering</div>
-                <div class="interest-item">Neural Interfaces</div>
+                <article class="interest-item"><span>01</span><h3>Agentic AI for science</h3><p>Autonomous, interpretable agents that transform complex biological analysis into reproducible scientific workflows.</p></article>
+                <article class="interest-item"><span>02</span><h3>Bioelectronic interfaces</h3><p>Soft, tissue-like electronics that chronically record cellular activity without disrupting development.</p></article>
+                <article class="interest-item"><span>03</span><h3>Spatial &amp; multimodal biology</h3><p>Methods that connect fast functional dynamics with molecular identity in the very same cells.</p></article>
             </div>
-            
         </section>
 
         <!-- Publications -->
         <section id="publications">
             <h2>Publications</h2>
-            <p style="margin-bottom: 1.5rem;">
             <p style="margin-top: 1.5rem;">
                 <em>* Denotes equal contribution, # Denotes corresponding author</em>
             </p>
@@ -436,7 +443,7 @@
 
             <!-- Category 1: AI agent for Biology & Control -->
             <div class="publication-category">
-                <h3 class="category-title">AI Agent for biology & control</h3>
+                <h3 class="category-title">AI Agent for biology &amp; control</h3>
                 
                 <div class="publication">
                     <div class="publication-image">
@@ -711,7 +718,7 @@
 
             <!-- Category 4: Neural Interfaces & In Vivo Bioelectronics -->
             <div class="publication-category">
-                <h3 class="category-title">Neural interfaces & <i>in vivo</i> bioelectronics</h3>
+                <h3 class="category-title">Neural interfaces &amp; <i>in vivo</i> bioelectronics</h3>
                 
                 <div class="publication">
                     <div class="publication-image">
@@ -756,7 +763,7 @@
 
             <!-- Category 5: Spatial Biology & High-Resolution Tissue Mapping -->
             <div class="publication-category">
-                <h3 class="category-title">Spatial biology & high-resolution tissue mapping</h3>
+                <h3 class="category-title">Spatial biology &amp; high-resolution tissue mapping</h3>
                 
                 <div class="publication">
                     <div class="publication-image">
@@ -837,8 +844,34 @@
                         </div>
                     </div>
                 </div>
-            
+            </div>
     
+        </section>
+
+        <section id="people">
+            <div class="section-kicker">People</div>
+            <h2>Meet the lab</h2>
+            <div class="people-grid">
+                <article class="person-card">
+                    <img src="profile-photo.jpg" alt="Portrait of Zuwan Lin">
+                    <div>
+                        <p class="person-role">Principal Investigator</p>
+                        <h3>Zuwan Lin, PhD</h3>
+                        <p>Zuwan is a postdoctoral researcher in Harvard SEAS working with Prof. Na Li. He earned his PhD in physical chemistry from Harvard and his BS in chemical biology from Tsinghua University.</p>
+                        <div class="person-links">
+                            <a href="https://scholar.google.com/citations?user=huZAOOQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                            <a href="https://orcid.org/0000-0001-5786-9768" target="_blank" rel="noopener">ORCID</a>
+                            <a href="https://github.com/linzw14" target="_blank" rel="noopener">GitHub</a>
+                        </div>
+                    </div>
+                </article>
+                <aside class="team-note">
+                    <span class="team-mark">+</span>
+                    <h3>Building the founding team</h3>
+                    <p>We welcome curious researchers who want to work across AI, bioengineering, and spatial biology.</p>
+                    <a href="#join">Learn about opportunities →</a>
+                </aside>
+            </div>
         </section>
 
         <!-- Presentations -->
@@ -872,7 +905,7 @@
             <h2>Teaching Experience</h2>
             
             <div class="teaching-item">
-                <strong>Neuroengineering</strong> - BE 131, Harvard University, 2024 & 2023
+                <strong>Neuroengineering</strong> - BE 131, Harvard University, 2024 &amp; 2023
             </div>
             <div class="teaching-item">
                 <strong>Foundations and Frontiers of Modern Chemistry</strong> - PHYSCI 11, Harvard University, 2019
@@ -883,12 +916,23 @@
 
         </section>
 
+        <section id="join" class="join-section">
+            <div>
+                <div class="section-kicker">Join us</div>
+                <h2>Let’s build the next generation of tools for biology.</h2>
+            </div>
+            <div class="join-copy">
+                <p>We are interested in people with backgrounds in AI, bioengineering, neuroscience, genomics, chemistry, and related fields. If our questions resonate with you, introduce yourself and tell us what you hope to explore.</p>
+                <a class="join-button" href="mailto:linzuwan@gmail.com?subject=Interest%20in%20the%20Lin%20Lab">Start a conversation</a>
+            </div>
+        </section>
+
         
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Zuwan Lin. Last updated: December 2024</p>
+        <p>&copy; 2026 The Lin Lab · Exploring intelligence across living systems</p>
     </footer>
 
     <script>
