@@ -297,7 +297,18 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:560;line-height:1.12;letter
 .publication .authors{font-size:13.5px;color:var(--ink-faint);line-height:1.55;margin-bottom:8px}
 .publication .authors strong{color:var(--ink);font-weight:650}
 .publication .venue{font-size:14px;font-weight:650;color:var(--ink-soft);margin-bottom:6px}
-.publication .venue i{font-style:normal;color:var(--c1)}
+.publication .venue i{
+  font-style:normal;display:inline-block;vertical-align:1px;
+  font-size:11.5px;font-weight:700;letter-spacing:.05em;
+  padding:2.5px 10px;border-radius:999px;
+  background:var(--c1-soft);color:var(--c1);
+}
+.publication .venue i.cover{background:var(--c3-soft);color:var(--c3)}
+.publication{
+  border-radius:12px;transition:background .18s;
+  padding-left:16px;padding-right:16px;margin-left:-16px;margin-right:-16px;
+}
+.publication:hover{background:#fff}
 .pub-link{font-size:14px;font-weight:650;color:var(--c1)}
 .pub-link:hover{text-decoration:underline}
 @media(max-width:680px){.publication{grid-template-columns:1fr}.publication img{width:100%;height:150px}}
@@ -344,4 +355,48 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:560;line-height:1.12;letter
   .site-header nav{display:none;width:100%;flex-direction:column;gap:2px}
   .site-header.menu-open nav{display:flex}
   .site-header nav a{padding:11px 12px}
+}
+
+/* ==========================================================================
+   Chinese typography
+   Fraunces carries no CJK glyphs, so Chinese headings fall through to a
+   system serif. Those faces need positive tracking and more leading than
+   the Latin display face — the Latin values make them look cramped.
+   ========================================================================== */
+html[lang="zh-CN"]{
+  --serif:"Fraunces","Source Han Serif SC","Noto Serif SC","Songti SC",Georgia,serif;
+}
+html[lang="zh-CN"] body{line-height:1.8}
+html[lang="zh-CN"] h1,
+html[lang="zh-CN"] h2,
+html[lang="zh-CN"] h3,
+html[lang="zh-CN"] .serif{letter-spacing:.005em;line-height:1.3;font-weight:600}
+html[lang="zh-CN"] .hero-words .w{letter-spacing:.01em;line-height:1.18}
+/* uppercase does nothing for CJK, and wide tracking scatters the glyphs */
+html[lang="zh-CN"] .eyebrow{letter-spacing:.08em}
+html[lang="zh-CN"] .venue-tag{letter-spacing:.04em}
+html[lang="zh-CN"] .publication .authors{line-height:1.7}
+
+/* ---------- scroll reveal (enhancement only; JS adds .reveal) ---------- */
+.reveal{
+  opacity:0;transform:translateY(16px);
+  transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1);
+}
+.reveal.is-in{opacity:1;transform:none}
+
+/* ---------- focus & motion accessibility ---------- */
+:focus-visible{outline:2.5px solid var(--c1);outline-offset:3px;border-radius:4px}
+.dark-band :focus-visible,.northstar :focus-visible,
+.contact-box :focus-visible,.align-strip :focus-visible{outline-color:#fff}
+.skip-link{
+  position:absolute;left:16px;top:-64px;z-index:100;
+  background:var(--ink);color:var(--paper);font-weight:650;font-size:14px;
+  padding:10px 18px;border-radius:0 0 10px 10px;transition:top .18s;
+}
+.skip-link:focus{top:0}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }

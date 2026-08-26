@@ -37,6 +37,15 @@ function renderChrome() {
     header.querySelector('.language-toggle').addEventListener('click', () => setLanguage(language === 'en' ? 'zh' : 'en'));
   }
 
+  let skip = document.querySelector('.skip-link');
+  if (!skip) {
+    skip = document.createElement('a');
+    skip.className = 'skip-link';
+    skip.href = '#main';
+    document.body.prepend(skip);
+  }
+  skip.textContent = label('Skip to content', '跳到主要内容');
+
   const footer = document.querySelector('[data-site-footer]');
   if (footer) footer.innerHTML = `
     <div><a class="footer-brand" href="index.html">The Lin Lab</a><p>${label('Intelligent Brain–Computer Interfaces and Bioelectronics Laboratory', '智能脑机接口与生物电子实验室')}</p></div>
@@ -54,4 +63,45 @@ function setLanguage(next) {
   renderChrome();
 }
 
-document.addEventListener('DOMContentLoaded', () => setLanguage(language));
+/* Scroll reveal. Purely additive: the .reveal class that hides an element is
+   applied from here, so with JS off (or reduced motion on) everything renders
+   visible as normal. */
+function initReveal() {
+  const main = document.querySelector('main');
+  if (main && !main.id) main.id = 'main';
+
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const targets = document.querySelectorAll(
+    '.pillar-card, .feature, .more-row, .news-item, .align-strip, .program, ' +
+    '.publication, .pub-category-head, .join-card, .value, .recruit-card, ' +
+    '.contact-box, .pi-grid, .northstar .wrap'
+  );
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
+
+  const set = new Set(targets);
+  targets.forEach(el => {
+    // Cascade siblings in a grid or list rather than popping them in together.
+    let step = 0;
+    for (let prev = el.previousElementSibling; prev; prev = prev.previousElementSibling) {
+      if (set.has(prev)) step++;
+    }
+    el.classList.add('reveal');
+    if (step) el.style.transitionDelay = Math.min(step, 5) * 70 + 'ms';
+    observer.observe(el);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setLanguage(language);
+  initReveal();
+});
