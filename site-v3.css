@@ -347,6 +347,12 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:560;line-height:1.12;letter
 .footer-brand{font-family:var(--serif);font-weight:600;font-size:20px}
 .site-footer p{font-size:14px;color:var(--ink-faint);margin-top:6px}
 .site-footer a:hover{color:var(--c1)}
+/* Institutional lockup. Height-constrained only — no filter, opacity, or
+   recolor, so the official asset renders exactly as its guidelines require.
+   JS keeps this hidden until the image loads. */
+.footer-affil{display:inline-block;margin-top:20px;line-height:0}
+.footer-affil[hidden]{display:none}
+.footer-affil img{height:32px;width:auto;max-width:100%}
 
 /* ---------- mobile nav ---------- */
 @media(max-width:860px){

@@ -6,6 +6,20 @@ const pages = [
   ['join.html', 'Join us', '加入我们']
 ];
 
+/* Westlake University lockup for the footer.
+   To switch it on: save the official file in this folder and set the constant
+   to its filename, e.g. 'westlake-logo.svg'. Leave it null and no markup is
+   emitted at all — no request, no console 404.
+
+   Request the file from the university's communications office rather than
+   reusing one found online: it is a trademark, and the visual identity manual
+   governs clear space, minimum size, and which monochrome variants are
+   allowed. Prefer SVG. The CSS constrains height only — it never recolors,
+   fades, or stretches the mark, so the asset renders as its guidelines
+   require. If the path is wrong the slot stays hidden rather than showing a
+   broken image. */
+const UNIVERSITY_LOGO = null;
+
 const SPARK = `<svg viewBox="0 0 52 32" fill="none" aria-hidden="true">
   <path d="M1 20 H10 l3-9 4 16 3-22 4 26 3-17 3 6 h21" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 </svg>`;
@@ -47,10 +61,25 @@ function renderChrome() {
   skip.textContent = label('Skip to content', '跳到主要内容');
 
   const footer = document.querySelector('[data-site-footer]');
-  if (footer) footer.innerHTML = `
-    <div><a class="footer-brand" href="index.html">The Lin Lab</a><p>${label('Intelligent Brain–Computer Interfaces and Bioelectronics Laboratory', '智能脑机接口与生物电子实验室')}</p></div>
+  if (!footer) return;
+
+  const uniHome = language === 'zh' ? 'https://www.westlake.edu.cn/' : 'https://en.westlake.edu.cn/';
+  const affilHTML = UNIVERSITY_LOGO
+    ? `<a class="footer-affil" href="${uniHome}" target="_blank" rel="noopener" hidden><img src="${UNIVERSITY_LOGO}" alt="${label('Westlake University', '西湖大学')}"></a>`
+    : '';
+  footer.innerHTML = `
+    <div><a class="footer-brand" href="index.html">The Lin Lab</a><p>${label('Intelligent Brain–Computer Interfaces and Bioelectronics Laboratory', '智能脑机接口与生物电子实验室')}</p>
+      ${affilHTML}</div>
     <div><p>${label('School of Engineering · Westlake University', '西湖大学工学院')}</p><p>${label('600 Dunyu Road, Hangzhou, China 310030', '浙江省杭州市西湖区墩余路600号，310030')}</p></div>
     <div><a href="mailto:linzuwan@westlake.edu.cn">linzuwan@westlake.edu.cn</a><p><a href="https://www.westlake.edu.cn/faculty/zuwan-lin.html" target="_blank" rel="noopener">${label('Westlake faculty profile ↗', '西湖大学教师主页 ↗')}</a></p><p><a href="https://github.com/linzw14" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/zuwan-lin-545b1b214/" target="_blank" rel="noopener">LinkedIn</a></p><p>© ${new Date().getFullYear()} The Lin Lab</p></div>`;
+
+  // Reveal only once the file actually loads, so a wrong path leaves no broken
+  // image and no gap in the column.
+  const affil = footer.querySelector('.footer-affil');
+  if (!affil) return;
+  const logo = affil.querySelector('img');
+  if (logo.complete && logo.naturalWidth) affil.hidden = false;
+  else logo.addEventListener('load', () => { affil.hidden = false; });
 }
 
 function setLanguage(next) {
