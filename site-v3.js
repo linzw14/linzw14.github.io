@@ -10,12 +10,12 @@ const pages = [
    The CSS constrains height only — it never recolors, fades, or stretches the
    mark, so the asset renders as its visual identity guidelines require.
 
-   UNIVERSITY_LOGO_ZH is for the bilingual lockup (西湖大學 + WESTLAKE
-   UNIVERSITY). Set it to that file's name and the Chinese version of the site
-   picks it up automatically; while it is null both languages use the English
-   lockup. Set either to null to drop that placement entirely. */
+   The default is the bilingual lockup (西湖大學 + WESTLAKE UNIVERSITY), which
+   carries both scripts and so suits either language. westlake-logo-en.png is
+   the English-only lockup: point UNIVERSITY_LOGO_EN at it to use that on the
+   English pages instead. Set UNIVERSITY_LOGO to null to drop the mark. */
 const UNIVERSITY_LOGO = 'westlake-logo.png';
-const UNIVERSITY_LOGO_ZH = null;
+const UNIVERSITY_LOGO_EN = null;
 
 const SPARK = `<svg viewBox="0 0 52 32" fill="none" aria-hidden="true">
   <path d="M1 20 H10 l3-9 4 16 3-22 4 26 3-17 3 6 h21" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -32,7 +32,7 @@ function label(en, zh) { return language === 'zh' ? zh : en; }
 
 function renderChrome() {
   const uniHome = language === 'zh' ? 'https://www.westlake.edu.cn/' : 'https://en.westlake.edu.cn/';
-  const uniLogo = language === 'zh' ? (UNIVERSITY_LOGO_ZH || UNIVERSITY_LOGO) : UNIVERSITY_LOGO;
+  const uniLogo = language === 'en' ? (UNIVERSITY_LOGO_EN || UNIVERSITY_LOGO) : UNIVERSITY_LOGO;
   const uniName = label('Westlake University', '西湖大学');
 
   const header = document.querySelector('[data-site-header]');

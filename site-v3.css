@@ -89,7 +89,10 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:560;line-height:1.12;letter
   display:flex;align-items:center;line-height:0;
   padding-left:18px;border-left:1px solid var(--line);
 }
-.header-affil img{height:27px;width:auto}
+/* 34px is the floor for the bilingual lockup: below it the "WESTLAKE
+   UNIVERSITY" line under 西湖大學 stops resolving. Still clears the 38px
+   brand mark, so header height is unchanged. */
+.header-affil img{height:34px;width:auto}
 /* The lockup beside the brand carries the affiliation, so the sub-line stands
    down to avoid saying it twice — the hero states the school. On mobile the
    lockup is hidden and the sub-line names the university again. */
