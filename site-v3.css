@@ -85,6 +85,15 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:560;line-height:1.12;letter
 .brand-mark svg{width:26px;height:16px}
 .brand b{font-family:var(--serif);font-size:18px;font-weight:600;display:block;line-height:1.1}
 .brand small{font-size:11.5px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase}
+.header-affil{
+  display:flex;align-items:center;line-height:0;
+  padding-left:18px;border-left:1px solid var(--line);
+}
+.header-affil img{height:27px;width:auto}
+/* The lockup beside the brand carries the affiliation, so the sub-line stands
+   down to avoid saying it twice — the hero states the school. On mobile the
+   lockup is hidden and the sub-line names the university again. */
+.brand-uni,.brand-school{display:none}
 .site-header nav{margin-left:auto;display:flex;gap:4px}
 .site-header nav a{
   padding:8px 14px;border-radius:999px;font-size:14.5px;font-weight:550;color:var(--ink-soft);
@@ -102,7 +111,19 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:560;line-height:1.12;letter
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line-soft)}
 .hero .wrap{position:relative;padding-top:84px;padding-bottom:72px}
-.hero-kicker{margin-bottom:34px}
+/* Institutional lockup: height-constrained only, never recolored or faded, so
+   the official asset renders as its guidelines require. */
+.hero-kicker{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.hero-affil{display:inline-block;line-height:0}
+.hero-affil img{height:46px;width:auto}
+.hero-school{
+  font-size:12px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-faint);padding-left:20px;border-left:1px solid var(--line);
+}
+@media(max-width:520px){
+  .hero-affil img{height:38px}
+  .hero-school{padding-left:0;border-left:0}
+}
 .hero-words{display:flex;flex-direction:column;gap:2px}
 .hero-words .w{
   font-family:var(--serif);font-weight:600;letter-spacing:-.02em;
@@ -347,12 +368,6 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:560;line-height:1.12;letter
 .footer-brand{font-family:var(--serif);font-weight:600;font-size:20px}
 .site-footer p{font-size:14px;color:var(--ink-faint);margin-top:6px}
 .site-footer a:hover{color:var(--c1)}
-/* Institutional lockup. Height-constrained only — no filter, opacity, or
-   recolor, so the official asset renders exactly as its guidelines require.
-   JS keeps this hidden until the image loads. */
-.footer-affil{display:inline-block;margin-top:20px;line-height:0}
-.footer-affil[hidden]{display:none}
-.footer-affil img{height:32px;width:auto;max-width:100%}
 
 /* ---------- mobile nav ---------- */
 @media(max-width:860px){
@@ -361,6 +376,18 @@ h1,h2,h3,.serif{font-family:var(--serif);font-weight:560;line-height:1.12;letter
   .site-header nav{display:none;width:100%;flex-direction:column;gap:2px}
   .site-header.menu-open nav{display:flex}
   .site-header nav a{padding:11px 12px}
+  /* Menu + language buttons need the row; the brand names the university in
+     text instead, and the hero still carries the lockup. */
+  .header-affil{display:none}
+  .brand-uni{display:inline}
+  .brand-school{display:none}
+}
+/* At 375px the brand plus both buttons overflowed by ~11px and dropped the
+   language toggle onto its own line. Tighten the gutters so they share a row. */
+@media(max-width:430px){
+  .site-header{padding-left:14px;padding-right:14px;gap:8px}
+  .menu-toggle,.language-toggle{padding:7px 11px}
+  .brand small{font-size:11px;letter-spacing:.06em}
 }
 
 /* ==========================================================================
